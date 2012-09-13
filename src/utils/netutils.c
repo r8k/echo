@@ -20,12 +20,21 @@ int new_tcp_server(const char *host, short port) {
 
 int new_tcp_client(const char *svr, short port) {
     int                   sock;
+    int                   rc;
     struct sockaddr_in    addr;
 
     set_address(svr, port, &addr);
-    sock = connect(sock, (struct sockaddr*)&addr, sizeof(addr));
+    sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1) {
+        perror("socket");
+        return -1;
+    }
+
+    rc = connect(sock, (struct sockaddr*)&addr, sizeof(addr));
+    if (rc == -1) {
         perror("connect");
+        close(sock);
+        return -1;
     }
     return sock;
 }
