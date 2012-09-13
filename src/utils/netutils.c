@@ -96,6 +96,7 @@ int writen(int fd, const char *b, int n) {
             b += sent;
         }
     }
+    return 0;
 }
 
 int readn(int fd, char *b, int n) {
