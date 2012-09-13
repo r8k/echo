@@ -1,5 +1,5 @@
 all:
-	#make -C utils
+	make -C utils
 	make -C sth
 
 clean:

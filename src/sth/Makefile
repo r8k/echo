@@ -1,11 +1,13 @@
-CFLAGS=-I$(HOME)/usr/local/include \
+CFLAGS=-g -Wall -Werror \
+			 -I$(HOME)/usr/local/include \
 			 -I../utils \
-			 -L$(HOME)/usr/local/lib 
+			 -L$(HOME)/usr/local/lib \
+			 -L../utils
 
-LDFLAGS=-lev
+LDFLAGS=-lev -lutils
 
 all: echo_server
-echo_server: echo_server.o ../utils/netutils.o
+echo_server: echo_server.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 .PHONY: clean
