@@ -1,10 +1,10 @@
-CFLAGS=-g -Wall -Werror \
-			 -I$(HOME)/usr/local/include \
-			 -I../utils \
-			 -L$(HOME)/usr/local/lib \
-			 -L../utils
+CFLAGS+=-Wall -Werror \
+				-I$(HOME)/usr/local/include \
+				-I../utils \
+				-L$(HOME)/usr/local/lib \
+				-L../utils
 
-LDFLAGS=-lev -lutils
+LDFLAGS+=-lev -lutils
 
 all: echo_server
 echo_server: echo_server.o

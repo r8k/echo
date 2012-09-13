@@ -2,10 +2,10 @@
 
 objs = buffer.o netutils.o connection.o list.o
 
-CFLAGS = -g -Wall -Werror \
-				 -I$(HOME)/usr/local/include \
-				 -L$(HOME)/usr/local/lib
-LDFLAG = -lev
+CFLAGS += -Wall -Werror \
+					-I$(HOME)/usr/local/include \
+					-L$(HOME)/usr/local/lib
+LDFLAG += -lev
 all: libutils.so libutils.a
 
 %.o: %.c
